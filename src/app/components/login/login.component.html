@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-6">
+    <form [formGroup]="loginForm" *ngIf="loginForm" (ngSubmit)="login()">
+      <div class="card">
+        <div class="card-header">
+          <div class="left">Login</div>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <select class="form-select" (change)="onSelectChange($event)">
+              <option [value]="">Select user</option>
+              <option *ngFor="let user of users" [value]="user.userId">{{ user.userName }}</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">User Id</span>
+            <input formControlName="TEXTBOX_U" type="text" placeholder="User Id" class="form-control" id="TEXTBOX_U" />
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">Password</span>
+            <input formControlName="TEXTBOX_P" type="password" placeholder="Password" class="form-control" id="TEXTBOX_P" />
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center">
+          <button class="btn btn-primary" type="submit" id="login_btn">Login</button>
+          <div class="flex-grow-1"></div>
+          <div class="spinner-border text-primary spinner-border-sm" role="status" *ngIf="this.pending">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="left">{{ message }}</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

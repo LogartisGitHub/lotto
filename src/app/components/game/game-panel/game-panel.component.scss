@@ -1,0 +1,43 @@
+.gamePanel {
+  .gamePanelBtn {
+    color: red;
+    cursor: pointer;
+  }
+  table {
+    position: relative;
+    z-index: 1;
+    border-collapse: separate;
+    border-spacing: 3px;
+    .gamePanelCell {
+      font-weight: 500;
+      color: red;
+      background-color: transparent;
+      text-align: center;
+      width: 32px;
+      border: 2px solid red;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255, 0, 0, 0.3);
+      }
+    }
+    .gamePanelCellSelected {
+      color: white;
+      background-color: transparentize($color: red, $amount: 0.3);
+      border-color: red;
+      text-align: center;
+      width: 32px;
+    }
+  }
+  position: relative;
+  .bgNumber {
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 220px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.2);
+  }
+}

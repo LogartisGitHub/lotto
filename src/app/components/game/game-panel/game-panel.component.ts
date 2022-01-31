@@ -26,10 +26,11 @@ export class GamePanelComponent implements OnInit {
       this.refreshGamePanel();
     });
   }
-  refreshGamePanel() {
+  private refreshGamePanel() {
     this.gamePanelData = clearGameArray(this.gamePanelData);
     markCells(this.myFormControl.value, this.gamePanelData);
   }
+
   cellClick(num: number, evt: any) {
     const currentValue = this.myFormControl.value.slice();
     const index = currentValue.indexOf(num);

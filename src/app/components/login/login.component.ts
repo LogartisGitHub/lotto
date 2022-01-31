@@ -20,7 +20,7 @@ export class LoginComponent {
   }
 
   init() {
-    this.authService.isLoggedIn = false;
+    this.authService.logout();
     this.authService.getUsers().subscribe((userDb) => {
       this.users = userDb;
       this.loginForm = new FormGroup({

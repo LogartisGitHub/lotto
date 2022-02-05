@@ -4,5 +4,7 @@ export function clearGameArray(gameArray: { index: number; isSelected: boolean }
       gameArray[i][j].isSelected = false;
     }
   }
+  console.log(gameArray);
   return gameArray;
+  
 }

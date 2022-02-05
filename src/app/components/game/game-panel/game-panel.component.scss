@@ -23,9 +23,6 @@
     .gamePanelCellSelected {
       color: white;
       background-color: transparentize($color: red, $amount: 0.3);
-      border-color: red;
-      text-align: center;
-      width: 32px;
     }
   }
   position: relative;

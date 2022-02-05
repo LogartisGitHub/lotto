@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   loginForm?: FormGroup;
   users?: User[] = [];
   message = '';
   pending = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  userSubscription : Subscription;
+  loginSubscription: Subscription;
+
+  constructor (private authService: AuthService, private router: Router) {
     this.init();
   }
 
@@ -28,6 +32,15 @@ export class LoginComponent {
         TEXTBOX_P: new FormControl(),
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    if(this.userSubscription ){
+      this.userSubscription.unsubscribe();
+    };
+    if(this.loginSubscription ){
+      this.loginSubscription.unsubscribe();
+    };    
   }
 
   onSelectChange(e: any) {
